@@ -1,0 +1,39 @@
+{
+    "manifest_version": 3,
+    "name": "Kroton Scheduler",
+    "version": "1.0",
+    "description": "Facilite sua vida acadêmica com a Kroton Scheduler! Esta extensão do Chrome permite que você crie compromissos no Google Agenda diretamente a partir das páginas de atividades da sua faculdade. Nunca mais perca um prazo ou esqueça uma atividade importante. Com apenas um clique, você pode adicionar a data e os detalhes da sua atividade acadêmica ao seu calendário, mantendo-se organizado e em dia com suas tarefas. Faculdades Suportadas: ANHAGUERA, FAMA, PITÁGORAS, PITÁGORAS AMPLI, UNIC, UNIDERP, UNIME, UNOPAR",
+    "permissions": [
+        "identity",
+        "storage",
+        "scripting",
+        "activeTab"
+    ],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "action": {
+        "default_popup": "popup.html",
+        "default_icon": {
+            "16": "icons/icon16.png",
+            "48": "icons/icon48.png",
+            "128": "icons/icon128.png"
+        }
+    },
+    "oauth2": {
+        "client_id": "550055682847-gmdj67r7qo58patf9hhpbi5cd2k578gs.apps.googleusercontent.com",
+        "scopes": [
+            "https://www.googleapis.com/auth/calendar.events"
+        ]
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "https://www.colaboraread.com.br/*"
+            ],
+            "js": [
+                "add-button.js"
+            ]
+        }
+    ]
+}
